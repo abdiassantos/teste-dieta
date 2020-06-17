@@ -16,4 +16,9 @@ class DietsController < ApplicationController
         Diet.destroy id
         redirect_to diets_path
     end
+
+    def search
+        diet = params[:refeicao]
+        @diets = Diet.where "refeicao like ?", "%#{refeicao}%"
+    end
 end
