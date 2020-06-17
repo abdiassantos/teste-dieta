@@ -1,0 +1,50 @@
+<html>
+    <body>
+        <table>
+            <h3>DIETS</h3>
+            <thead>
+                <tr>
+                    <td>Horário</td>
+                    <td>Refeição</td>
+                    <td>Descrição</td>
+                </tr>
+            </thead>
+
+            <tbody>
+            <% @diets.each do |diet| %>
+                <tr>
+                    <td><%= diet.horario %></td>
+                    <td><%= diet.refeicao %></td>
+                    <td><%= diet.descricao %></td>
+                </tr>
+            <% end %>
+            </tbody>
+        </table>
+
+        <table>
+            <h3>INFOS</h3>
+            <thead>
+                <tr>
+                    <td>Data inicio</td>
+                    <td>Data fim</td>
+                    <td>Peso</td>
+                    <td>Peso ideal</td>
+                    <td>Altura</td>
+                </tr>
+            </thead>
+
+            <tbody>
+            <% @infos.each do |info| %>
+                <tr>
+                    <td><%= info.data_inicio %></td>
+                    <td><%= info.data_fim %></td>
+                    <td><%= info.peso %></td>
+                    <td><%= info.peso_ideal %></td>
+                    <td><%= info.altura %></td>
+
+                </tr>
+            <% end %>
+            </tbody>
+        </table>
+    </body>
+<html>
