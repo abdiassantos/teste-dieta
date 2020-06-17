@@ -1,11 +1,37 @@
-<html>
-    <body>
-        <%= form_for Diet.new do |form| %>
-            Horario <input type="string" name="diet[horario]"></br>
-            Refeição <input type="string" name="diet[refeicao]"></br>
-            Descrição <textarea name="diet[descricao]"></textarea></br>
+<%= form_for Diet.new do |form| %>
 
-            <button type="submit">Criar</button>
-        <% end %>
-    </body>
-</html>
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="form-group">
+                <%= form.label :horario %>
+                <%= form.time_field :horario, class:"form-control" %>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="control-group">
+                <%= form.label :refeicao, class:"control-label"%>
+                <%= form.select :refeicao, options_for_select([
+                        ['Café da manhã' , 'Café da manhã' ],
+                        ['Lanche' , 'Lanche' ], 
+                        ['Almoço' , 'Almoço' ],
+                        ['jantar' , 'Jantar' ],
+                        ['Ceia' , 'Ceia' ]
+                    ]), {}, class:"form-control" %>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <%= form.label :descricao %>
+                <%= form.text_area :descricao, class:"form-control", rows:6 %>
+            </div>
+        </div>
+    </div>
+
+    <%= form.submit "Criar", class:"btn btn-primary" %>
+<% end %>

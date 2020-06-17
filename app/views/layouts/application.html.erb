@@ -10,6 +10,15 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= nav_bar brand: "Dashboard", brand_link: root_url do %>
+      <%= menu_group do %>
+        <%= menu_item "Dieta", diets_index_path %>
+        <%= menu_item "Criar nova dieta", diets_new_path %>
+      <% end %>
+    <% end %>
+
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
