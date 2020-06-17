@@ -1,0 +1,11 @@
+<html>
+    <body>
+        <%= form_for Diet.new do |form| %>
+            Horario <input type="string" name="diet[horario]"></br>
+            Refeição <input type="string" name="diet[refeicao]"></br>
+            Descrição <textarea name="diet[descricao]"></textarea></br>
+
+            <button type="submit">Criar</button>
+        <% end %>
+    </body>
+</html>
