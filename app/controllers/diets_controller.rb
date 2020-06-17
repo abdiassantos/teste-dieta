@@ -8,7 +8,6 @@ class DietsController < ApplicationController
     def create
         diet = params.require(:diet).permit(:horario, :refeicao, :descricao)
         Diet.create diet
-        redirect_to diets_path
     end
 
     def destroy

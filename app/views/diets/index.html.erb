@@ -1,54 +1,60 @@
-<table class="table table-bordered table-hover">
-    <div class="alert alert-success" role="alert">
-        <h3 class="alert-heading">DIETS</h3>
-    </div>
-    <thead>
-        <tr>
-            <td>Horário</td>
-            <td>Refeição</td>
-            <td>Descrição</td>
-            <td colspan="1"></td>
-        </tr>
-    </thead>
+<div class="container space-between-div">
+        <%= link_to "Criar nova dieta", new_diet_path, class:"btn btn-default" %>
+</div>
 
-    <tbody>
-        <% @diets.each do |diet| %>
+<div class="container">
+    <table class="table table-bordered table-hover">
+        <div class="alert alert-success" role="alert">
+            <h3 class="alert-heading">DIETS</h3>
+        </div>
+        <thead>
             <tr>
-                <td><%= diet.horario %></td>
-                <td><%= diet.refeicao %></td>
-                <td><%= diet.descricao %></td>
-                <td>
-                <%= button_to "Remover", diet, method: :delete, class:"btn btn-danger", data: {confirm: "Tem certeza que deseja excluir a refeição?"} %>
-                </td>
+                <td>Horário</td>
+                <td>Refeição</td>
+                <td>Descrição</td>
+                <td colspan="1"></td>
             </tr>
-        <% end %>
-    </tbody>
-</table>
+        </thead>
 
-<table class="table table-bordered table-hover">
-    <div class="alert alert-success" role="alert">
-        <h3 class="alert-heading">INFOS</h3>
-    </div>
-    <thead>
-        <tr>
-            <td>Data inicio</td>
-            <td>Data fim</td>
-            <td>Peso</td>
-            <td>Peso ideal</td>
-            <td>Altura</td>
-        </tr>
-    </thead>
+        <tbody>
+            <% @diets.each do |diet| %>
+                <tr>
+                    <td><%= diet.horario %></td>
+                    <td><%= diet.refeicao %></td>
+                    <td><%= diet.descricao %></td>
+                    <td>
+                    <%= button_to "Remover", diet, method: :delete, class:"btn btn-danger", data: {confirm: "Tem certeza que deseja excluir a refeição?"} %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
 
-    <tbody>
-        <% @infos.each do |info| %>
+    <table class="table table-bordered table-hover">
+        <div class="alert alert-success" role="alert">
+            <h3 class="alert-heading">INFOS</h3>
+        </div>
+        <thead>
             <tr>
-                <td><%= info.data_inicio %></td>
-                <td><%= info.data_fim %></td>
-                <td><%= info.peso %></td>
-                <td><%= info.peso_ideal %></td>
-                <td><%= info.altura %></td>
-
+                <td>Data inicio</td>
+                <td>Data fim</td>
+                <td>Peso</td>
+                <td>Peso ideal</td>
+                <td>Altura</td>
             </tr>
-        <% end %>
-    </tbody>
-</table>
+        </thead>
+
+        <tbody>
+            <% @infos.each do |info| %>
+                <tr>
+                    <td><%= info.data_inicio %></td>
+                    <td><%= info.data_fim %></td>
+                    <td><%= info.peso %></td>
+                    <td><%= info.peso_ideal %></td>
+                    <td><%= info.altura %></td>
+
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

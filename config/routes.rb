@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # get "diets/new", to: "diets#new"
   # get "diets/index", to: "diets#index"
   # delete "diets/:id/", to: "diets#destroy", as: :diet
-  resources :diets, onyl: [:index, :new, :create, :destroy]
+  resources :diets, only: [:index, :new, :create, :destroy]
+  resources :infos, only: [:index, :new, :create, :destroy]
 
 end
