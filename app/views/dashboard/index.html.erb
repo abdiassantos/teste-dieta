@@ -1,1 +1,17 @@
-<h3>Dashboard</h3>
+<div class="container space-between-div">
+    <h3 class="">
+        <strong>
+            <%= label_tag "Olá, #{current_user.name}" %>
+        </strong>
+    </h3>
+</div>
+
+<%= area_chart Weight.pluck(:created_at, :peso_atual), xtitle: "Peso", ytitle: "Data" %>
+
+<div class="container space-top">
+    <h4 class="">
+        <strong>
+            <%= label_tag "#{current_user.name}, continue assim, está indo muito bem!" %>
+        </strong>
+    </h4>
+</div>

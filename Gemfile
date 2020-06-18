@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
 
+# AChartkick and Groupdate
+gem 'chartkick'
+gem 'groupdate'
 # Devise gem
 gem 'devise'
 # Twitter bootstrap Rails

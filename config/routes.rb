@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users, controllers: {sessions: 'users/sessions'}
+  devise_for :users, controllers: {registrations: 'users/registrations'}
   root to: "dashboard#index"
 
   # post "diets", to: "diets#create"
@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   # delete "diets/:id/", to: "diets#destroy", as: :diet
   resources :diets, only: [:index, :new, :create, :destroy]
   resources :infos, only: [:index, :new, :create, :destroy]
+  resources :weight, only: [:index, :new, :create]
 
 end

@@ -3,6 +3,7 @@ class InfosController < ApplicationController
     def index
         @diets = Diet.order(:refeicao)
         @infos = Info.order(:data_inicio)
+        @weights = Weight.order(:peso_atual)
     end
 
     def create
