@@ -32,7 +32,7 @@
 
     <table class="table table-bordered table-hover">
         <div class="alert alert-success" role="alert">
-            <h3 class="alert-heading">INFOS</h3>
+            <h3 class="alert-heading">DADOS GERAIS</h3>
         </div>
         <thead>
             <tr>
@@ -41,6 +41,7 @@
                 <td>Peso</td>
                 <td>Peso ideal</td>
                 <td>Altura</td>
+                <td colspan="1"></td>
             </tr>
         </thead>
 
@@ -52,7 +53,9 @@
                     <td><%= info.peso %></td>
                     <td><%= info.peso_ideal %></td>
                     <td><%= info.altura %></td>
-
+                    <td>
+                    <%= button_to "Remover", info, method: :delete, class:"btn btn-danger", data: {confirm: "Tem certeza que deseja excluir os dados gerais da dieta?"} %>
+                    </td>
                 </tr>
             <% end %>
         </tbody>

@@ -5,9 +5,15 @@ class DietsController < ApplicationController
         @infos = Info.order(:data_inicio)
     end
 
+    def new
+        @diets = Diet.order(:refeicao)
+    end
+
     def create
         diet = params.require(:diet).permit(:horario, :refeicao, :descricao)
         Diet.create diet
+
+        redirect_to new_diet_path
     end
 
     def destroy

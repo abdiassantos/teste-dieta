@@ -44,11 +44,10 @@
         </div>
     </div>
 
-        <%= info_form.submit "Salvar", class:"btn btn-success" %>
+        <%= info_form.submit "Salvar", class:"btn btn-primary" %>
 <% end %>
 
 <hr class="hr1">
-
 <%= form_for Diet.new do |diet_form| %>
     <h1 class="title">Dietas</h1>
     <hr class="hr2">
@@ -84,3 +83,37 @@
 
     <%= diet_form.submit "Adicionar", class:"btn btn-primary" %>
 <% end %>
+
+<hr class="hr2">
+<div class="container">
+    <table class="table table-bordered table-hover">
+        <div class="alert alert-success" role="alert">
+            <h3 class="alert-heading">DIETAS</h3>
+        </div>
+        <thead>
+            <tr>
+                <td>Horário</td>
+                <td>Refeição</td>
+                <td>Descrição</td>
+                <td colspan="1"></td>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% @diets.each do |diet| %>
+                <tr>
+                    <td><%= diet.horario %></td>
+                    <td><%= diet.refeicao %></td>
+                    <td><%= diet.descricao %></td>
+                    <td>
+                    <%= button_to "Remover", diet, method: :delete, class:"btn btn-danger", data: {confirm: "Tem certeza que deseja excluir a refeição?"} %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+
+<div class="space-between-div">
+        <%= link_to "FINALIZAR", diets_path, class:"btn btn-success" %>
+</div>
