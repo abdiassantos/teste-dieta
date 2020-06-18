@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   # delete "diets/:id/", to: "diets#destroy", as: :diet
   resources :diets, only: [:index, :new, :create, :destroy]
   resources :infos, only: [:index, :new, :create, :destroy]
-  resources :weight, only: [:index, :new, :create]
+  resources :weights, only: [:index, :new, :create]
 
 end

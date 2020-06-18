@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class WeightControllerTest < ActionDispatch::IntegrationTest
+class WeightsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

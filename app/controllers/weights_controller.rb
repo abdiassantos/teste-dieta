@@ -1,4 +1,4 @@
-class WeightController < ApplicationController
+class WeightsController < ApplicationController
 
     def index
         @weights = Weight.order(:peso_atual)
