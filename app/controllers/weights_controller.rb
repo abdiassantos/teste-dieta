@@ -5,14 +5,20 @@ class WeightsController < ApplicationController
     end
 
     def new
+        @weight = Weight.new
         @weights = Weight.order(:peso_atual)
     end
 
     def create
-        weight = params.require(:weight).permit(:peso_atual)
-        Weight.create weight
+        values = params.require(:weight).permit(:peso_atual)
 
-        redirect_to root_url
+        @weight = Weight.new values
+        
+        if @weight.save
+            redirect_to root_url
+        else
+            render :new
+        end
     end
 
 end

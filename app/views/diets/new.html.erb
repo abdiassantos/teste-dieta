@@ -1,4 +1,16 @@
-<%= form_for Info.new do |info_form| %>
+<% @diet.errors.full_messages.each do |msg| %>
+    <div class="alert alert-danger" role="alert">
+        <%= msg %>
+    </div>
+<% end %>
+
+<% @info.errors.full_messages.each do |msg| %>
+    <div class="alert alert-danger" role="alert">
+        <%= msg %>
+    </div>
+<% end %>
+
+<%= form_for @info do |info_form| %>
     <h1 class="title">Dados Gerais</h1>
     <hr class="hr2">
     <div class="space-between-categories">
@@ -48,7 +60,7 @@
 <% end %>
 
 <hr class="hr1">
-<%= form_for Diet.new do |diet_form| %>
+<%= form_for @diet do |diet_form| %>
     <h1 class="title">Dietas</h1>
     <hr class="hr2">
     <div class="row">

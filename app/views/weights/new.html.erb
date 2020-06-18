@@ -1,4 +1,10 @@
-<%= form_for Weight.new do |weight_form| %>
+<% @weight.errors.full_messages.each do |msg| %>
+    <div class="alert alert-danger" role="alert">
+        <%= msg %>
+    </div>
+<% end %>
+
+<%= form_for @weight do |weight_form| %>
     <h1 class="title">Registro de Pesos</h1>
     <hr class="hr2">
 

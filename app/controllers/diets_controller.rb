@@ -6,12 +6,14 @@ class DietsController < ApplicationController
     end
 
     def new
+        @diet = Diet.new
+        @info = Info.new
         @diets = Diet.order(:refeicao)
     end
 
     def create
-        diet = params.require(:diet).permit(:horario, :refeicao, :descricao)
-        Diet.create diet
+        @diet = params.require(:diet).permit(:horario, :refeicao, :descricao)
+        Diet.create @diet
 
         redirect_to new_diet_path
     end
