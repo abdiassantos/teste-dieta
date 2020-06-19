@@ -10,7 +10,8 @@
     <h4>
 </div>
 
-<%= area_chart Weight.pluck(:created_at, :peso_atual), xtitle: "Data de cadastro", ytitle: "Peso" %>
+<%= area_chart Weight.pluck(:created_at, :peso_atual), xtitle: "Data de registro", ytitle: "Peso",
+                            download: {filename: "RegistroDePeso", background: "#fffFFF"} %>
 
 <div class="container space-top">
     <h4 class="">
