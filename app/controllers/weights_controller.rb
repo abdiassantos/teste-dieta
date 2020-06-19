@@ -13,6 +13,7 @@ class WeightsController < ApplicationController
         values = params.require(:weight).permit(:peso_atual)
 
         @weight = Weight.new values
+        @weight.user_id = current_user.id
         
         if @weight.save
             redirect_to root_url

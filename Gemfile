@@ -3,8 +3,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
 
-# AChartkick and Groupdate
+# Translation Gem
+gem 'rails-i18n', '~> 6.0.0' # For 6.0.0 or higher
+# Chartkick tto cerate some graphics
 gem 'chartkick'
+# Groupdate for group my data into count each dates
 gem 'groupdate'
 # Devise gem
 gem 'devise'

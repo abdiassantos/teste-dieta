@@ -1,21 +1,27 @@
 class DietsController < ApplicationController
 
     def index
-        @diets = Diet.order(:refeicao)
-        @infos = Info.order(:data_inicio)
+        @diets = Diet.order(:horario).where("user_id = ?", current_user.id)
+        @infos = Info.order(:data_inicio).where("user_id = ?", current_user.id)
     end
 
     def new
         @diet = Diet.new
         @info = Info.new
-        @diets = Diet.order(:refeicao)
+        @diets = Diet.order(:horario).where("user_id = ?", current_user.id)
     end
 
     def create
-        @diet = params.require(:diet).permit(:horario, :refeicao, :descricao)
-        Diet.create @diet
+        values = params.require(:diet).permit(:horario, :refeicao, :descricao)
 
-        redirect_to new_diet_path
+        @diet = Diet.new values
+        @diet.user_id = current_user.id
+
+        if @diet.save 
+            redirect_to new_diet_path
+        else
+            render :new
+        end
     end
 
     def destroy

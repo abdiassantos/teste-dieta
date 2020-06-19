@@ -13,10 +13,16 @@ class InfosController < ApplicationController
     end
 
     def create
-        @info = params.require(:info).permit(:data_inicio, :data_fim, :peso, :peso_ideal, :altura)
-        Info.create @info
+        values = params.require(:info).permit(:data_inicio, :data_fim, :peso, :peso_ideal, :altura)
         
-        redirect_to new_diet_path
+        @info = Info.new values
+        @info.user_id = current_user.id
+
+        if @info.save
+            redirect_to new_diet_path
+        else
+            render :new
+        end
     end
 
     def destroy
