@@ -107,7 +107,7 @@
                 <td>Horário</td>
                 <td>Refeição</td>
                 <td>Descrição</td>
-                <td colspan="1"></td>
+                <td colspan="2"></td>
             </tr>
         </thead>
 
@@ -117,6 +117,9 @@
                     <td><%= diet.horario %></td>
                     <td><%= diet.refeicao %></td>
                     <td><%= diet.descricao %></td>
+                    <td>
+                        <%= link_to "Atualizar", edit_diet_path(diet), class:"btn btn-default" %>
+                    </td>
                     <td>
                     <%= button_to "Remover", diet, method: :delete, class:"btn btn-danger", data: {confirm: "Tem certeza que deseja excluir a refeição?"} %>
                     </td>

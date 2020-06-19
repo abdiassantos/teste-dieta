@@ -1,5 +1,7 @@
 class DietsController < ApplicationController
 
+    before_action :set_diet, only: [:edit, :update, :destroy]
+
     def index
         @diets = Diet.order(:horario).where("user_id = ?", current_user.id)
         @infos = Info.order(:data_inicio).where("user_id = ?", current_user.id)
@@ -11,10 +13,22 @@ class DietsController < ApplicationController
         @diets = Diet.order(:horario).where("user_id = ?", current_user.id)
     end
 
-    def create
-        values = params.require(:diet).permit(:horario, :refeicao, :descricao)
+    def edit
+        @diets = Diet.order(:horario).where("user_id = ?", current_user.id)
 
-        @diet = Diet.new values
+        render :edit
+    end
+
+    def update
+        if @diet.update diet_params
+            redirect_to diets_path
+        else
+            :edit
+        end
+    end
+
+    def create
+        @diet = Diet.new diet_params
         @diet.user_id = current_user.id
 
         if @diet.save 
@@ -25,13 +39,23 @@ class DietsController < ApplicationController
     end
 
     def destroy
-        id = params[:id]
-        Diet.destroy id
+        @diet.destroy
         redirect_to diets_path
     end
 
     def search
         diet = params[:refeicao]
         @diets = Diet.where "refeicao like ?", "%#{refeicao}%"
+    end
+
+    # Funções pprivadas do controller
+    private
+
+    def diet_params
+        params.require(:diet).permit(:horario, :refeicao, :descricao)
+    end
+
+    def set_diet
+        @diet = Diet.find(params[:id])
     end
 end
