@@ -12,7 +12,7 @@
     ruby -v
   ```
   
-  * Rails 6.0.3.1
+* Rails 6.0.3.1
   ```bash
     gem install rails -v 6.0.2.2
     rbenv rehash
