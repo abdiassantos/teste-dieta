@@ -11,7 +11,14 @@
     rvm use 2.7.1 --default
     ruby -v
   ```
-* NVM última versão disponível
+  
+  * Rails 6.0.3.1
+  ```bash
+    gem install rails -v 6.0.2.2
+    rbenv rehash
+    rails -v
+  ```
+* RVM última versão disponível
     > Link para download e instalação no Linux -  <https://gorails.com/setup/ubuntu/20.04>
 
     > Link para download e instalação no MacOS -  <https://gorails.com/setup/osx/10.15-catalina>
@@ -44,7 +51,7 @@ yarn install --check-files
   ```bash
   rails s
   ```
-* Acesse o endereço para verificar a mensagem de "Hello World" enviada para a raiz da API de testes:
+* Acesse o endereço para acessar o acesso ao sistema:
   > <localhost:3000>
 
 ## Prontinho tudo instalado!
